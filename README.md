@@ -1,9 +1,9 @@
 # 🎂 Fluffy Bakes - Business Analytics Dashboard
 
 A pastel-themed interactive dashboard built with **Streamlit** to help small bakery businesses make smarter decisions using their own sales data.
+🧁 **Live Demo**: (https://fluffybakesdashboard.streamlit.app/)
 
 ## 📊 Features
-
 - 🔍 Overview of total orders, revenue & top product
 - 🍪 Top 5 best-selling items
 - 📈 Monthly revenue trends
