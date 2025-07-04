@@ -6,9 +6,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
+# ✅ Page config
 st.set_page_config(page_title="Fluffy Bakes Dashboard", layout="wide")
 
-# ✅ White background theme
+# ✅ Minimal white background
 st.markdown("""
     <style>
         .stApp {
@@ -24,19 +25,17 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ✅ Load data
+# ✅ Load cleaned data
 df = pd.read_excel("clean_bakery_data.xlsx")
 df['Date'] = pd.to_datetime(df['Date'])
 df['Month'] = df['Date'].dt.month_name()
 df['Day'] = df['Date'].dt.day_name()
 
-# ✅ Title section
-st.markdown("""
-<div class="section">
-    <h1 style='font-size: 40px; color: #d63384;'>🎂 Fluffy Bakes - Business Analytics Dashboard</h1>
-    <p style='font-size: 20px; color: #555;'>Grow your bakery business with insights that are as sweet as your treats! 🍰</p>
-</div>
-""", unsafe_allow_html=True)
+# ✅ Title
+st.markdown('<div class="section">', unsafe_allow_html=True)
+st.title("🎂 Fluffy Bakes - Business Analytics Dashboard")
+st.markdown("Grow your bakery business with insights that are as sweet as your treats! 🍰")
+st.markdown('</div>', unsafe_allow_html=True)
 
 # ✅ Top Selling Items
 st.markdown('<div class="section">', unsafe_allow_html=True)
@@ -88,7 +87,7 @@ plt.xticks(rotation=0)
 st.pyplot(fig4)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ✅ Customer Loyalty Pie
+# ✅ Customer Loyalty Pie Chart
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("👥 Customer Loyalty")
 customer_counts = df["Customer_Name"].value_counts()
@@ -100,7 +99,7 @@ ax5.set_title("Customer Type")
 st.pyplot(fig5)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ✅ ML: Customer Classification
+# ✅ ML Section: Customer Classification
 st.markdown('<div class="section">', unsafe_allow_html=True)
 st.subheader("🧠 Customer Purchase Classification")
 
@@ -129,23 +128,41 @@ ax_cm.set_title("📊 Confusion Matrix: Repeat Buyer Prediction")
 st.pyplot(fig_cm)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ✅ Smart Suggestions
+# ✅ Smart Suggestions Section (Final, visible on cloud)
+st.markdown('<div class="section">', unsafe_allow_html=True)
+st.subheader("💡 Smart Suggestions to Grow Your Bakery")
+
 st.markdown("""
-<div class="section">
-    <h2 style='color: #2b2b2b;'>💡 Smart Suggestions to Grow Your Bakery</h2>
-    <ul>
-        <li>🎯 <b>Boost Tuesday, Wednesday & Sunday Sales</b> – Run “Buy 2 Get 1 Free” or special launches.</li>
-        <li>🍫 <b>Feature Chocolate Cake</b> – Spotlight it in offers and bundles.</li>
-        <li>📦 <b>Stock Up by Monday</b> – Prepare for Tue-Wed-Sun demand.</li>
-        <li>📱 <b>Instagram Strategy</b> – Post before 11 AM with engaging content.</li>
-        <li>🔁 <b>Start Loyalty Program</b> – Collect emails or WhatsApp numbers.</li>
-        <li>🎁 <b>Offer Repeat Discounts</b> – ₹300+ orders or birthdays = 20% off.</li>
-        <li>📊 <b>Focus on June 23 & 25</b> – High demand forecast.</li>
-        <li>⚠️ <b>Counter June 24 Drop</b> – “Today Only” or “Early Bird” deals.</li>
-        <li>📋 <b>Collect Feedback</b> – Use QR codes on invoices or counters.</li>
-    </ul>
-</div>
+Here are some data-driven tips to increase sales and customer retention:
+
+- 🎯 **Boost Tuesday, Wednesday & Sunday Sales**  
+  These are your peak sale days. Run _Buy 2 Get 1 Free_ or exclusive launches to maximize profits.
+
+- 🍫 **Feature Chocolate Cake in Promotions**  
+  It’s your best-seller! Use it in spotlight offers or bundles to upsell.
+
+- 📦 **Stock Up Smartly by Monday**  
+  Prepare inventory early to meet mid-week demand.
+
+- 📱 **Instagram Strategy**  
+  Post before 11 AM on peak days. Use polls or “This or That” stories to engage users.
+
+- 🔁 **Build Loyalty**  
+  Collect customer emails or WhatsApp numbers. Launch simple loyalty reward points or birthday offers.
+
+- 🎁 **Surprise Repeat Customers**  
+  Give 20% off on ₹300+ orders or free items for 3rd-time purchases.
+
+- 📊 **High-Demand Alert: June 23 & 25**  
+  Prepare extra stock and launch a campaign around these dates.
+
+- ⚠️ **Low Sales Forecast: June 24**  
+  Use flash offers like _“Only for Today”_ or _“Early Bird Discount”_ to push orders.
+
+- 📋 **Collect Feedback via QR**  
+  Add a short survey on receipts or at the counter with a QR code to understand what people love.
 """, unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # ✅ Footer
 st.caption("🚀 Built by Mrudula • Grow With Data")
