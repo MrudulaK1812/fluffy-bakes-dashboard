@@ -1,0 +1,22 @@
+
+# Ignore Python virtual environment
+env/
+.venv/
+__pycache__/
+*.pyc
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore Streamlit cache
+.streamlit/
+
+# Ignore VS Code settings
+.vscode/
+
+# Data files
+*.xlsx
